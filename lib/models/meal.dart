@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 enum Complexity {
-  Simples,
+  Simple,
   Medium,
   Difficult,
 }
@@ -19,11 +19,11 @@ class Meal {
   final String imageUrl;
   final List<String> ingredients;
   final List<String> steps;
-  final int durations;
+  final int duration;
   final bool isGlutenFree;
   final bool isLactoseFree;
   final bool isVegan;
-  final bool isVegeraian;
+  final bool isVegetarian;
   final Complexity complexity;
   final Cost cost;
 
@@ -34,11 +34,11 @@ const Meal({
     required this.imageUrl,
     required this.ingredients,
     required this.steps,
-    required this.durations,
+    required this.duration,
     required this.isGlutenFree,
     required this.isLactoseFree,
     required this.isVegan,
-    required this.isVegeraian,
+    required this.isVegetarian,
     required this.complexity,
     required this.cost,
   });
