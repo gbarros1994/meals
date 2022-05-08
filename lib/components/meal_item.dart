@@ -76,6 +76,13 @@ class MealItem extends StatelessWidget {
                       SizedBox(width: 6),
                       Text(meal.complexityText),
                     ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.attach_money),
+                      SizedBox(width: 6),
+                      Text(meal.costText),
+                    ],
                   )
                 ],
               ),
