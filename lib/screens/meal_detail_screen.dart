@@ -17,7 +17,7 @@ class MealDetailScreen extends StatelessWidget {
 
   Widget _createSectionContainer(Widget child) {
     return Container(
-      width: 300,
+      width: 330,
       height: 250,
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.all(10),
@@ -38,7 +38,7 @@ class MealDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(meal.title),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -66,6 +66,20 @@ class MealDetailScreen extends StatelessWidget {
                 );
               }),
             ),  
+            _createSectionTitle(context, 'Passos'),
+            _createSectionContainer(
+              ListView.builder(
+                itemCount: meal.steps.length,
+                itemBuilder: (ctx, index) {
+                  return ListTile(
+                    leading: CircleAvatar(
+                      child: Text('${index + 1}'),
+                    ),
+                    title: Text(meal.steps[index]),
+                  );
+                },
+              )
+            )
           ],
         )
       ),
