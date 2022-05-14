@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+
 import 'categories_screen.dart';
 import 'favorite_screen.dart';
 
 class TabsScreen extends StatefulWidget {
-
   @override
-  State<TabsScreen> createState() => _TabsScreenState();
+  _TabsScreenState createState() => _TabsScreenState();
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-
   int _selectedScreenIndex = 0;
+
+  final List<String> _titles = [
+    'Lista de Categorias',
+    'Meus Favoritos',
+  ];
+
   final List<Widget> _screens = [
     CategoriesScreen(),
-    FavoriteScreen()
+    FavoriteScreen(),
   ];
 
   _selectScreen(int index) {
@@ -26,24 +31,23 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vamos Cozinhar?'),
+        title: Text(_titles[_selectedScreenIndex]),
       ),
-      body: _selectScreen[_selectedScreenIndex],
+      body: _screens[_selectedScreenIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectScreen,
         backgroundColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
         currentIndex: _selectedScreenIndex,
-        type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            title: Text('Categorias'),
+            label: 'Categorias',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            title: Text('Favoritos')
+            label: 'Favoritos',
           ),
         ],
       ),
