@@ -1,4 +1,4 @@
-# Meals --
+# Meals
 
 Project Flutter
 
